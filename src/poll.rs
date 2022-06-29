@@ -34,6 +34,7 @@ impl PollFd {
     /// Returns the events that occurred in the last call to `poll` or `ppoll`.  Will only return
     /// `None` if the kernel provides status flags that Nix does not know about.
     pub fn revents(self) -> Option<PollFlags> {
+        println!("{:?}", self.pollfd.revents);
         PollFlags::from_bits(self.pollfd.revents)
     }
 
